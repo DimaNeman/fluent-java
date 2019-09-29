@@ -10,6 +10,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
+// SERVER
 public class Main {
     private final static Logger LOGGER = Logger.getLogger(Main.class.getName());
     private static final HashMap<String, User> DATABASE_USERS = new HashMap<>();

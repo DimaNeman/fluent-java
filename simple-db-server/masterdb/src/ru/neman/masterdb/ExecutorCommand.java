@@ -10,8 +10,7 @@ import java.util.regex.Pattern;
 public class ExecutorCommand {
     // general info
     private final static String ROOT_DB = "data\\";
-    private final static String DONE = "done";
-
+    
     // client commands
     private final static String CREATE = "CREATE TABLE";
     private final static String SCHEMA = "SCHEMA TABLE";
@@ -25,7 +24,7 @@ public class ExecutorCommand {
     private final static String HELP_RESPONSE = "CREATE - create table\n" +
             "example: CREATE TABLE Persons (PersonID int, LastName varchar)\n" +
             "INSERT_INTO - insert new! data into table\n" +
-            "example: INSERT INTO Persons (val1,val2) VALUES (val1, val2)\n" +
+            "example: INSERT INTO Persons (val1,val2)\n" +
             "SELECT - select * from table\n" +
             "example: SELECT (col1, col2) FROM table\n" +
             "DELETE - delete table\n" +
@@ -36,6 +35,7 @@ public class ExecutorCommand {
     private final static String TABLE_ALREADY_EXIST = "Table already exists";
     private final static String TABLE_DOESNT_EXIST = "Table doesn't exists";
     private final static String ONLY_INT_OR_VARCHAR = "Only int or varchar";
+    private final static String DONE = "done";
 
     private ExecutorCommand() {
     }
@@ -172,8 +172,7 @@ public class ExecutorCommand {
                         return BAD_REQUEST;
                     }
                 }
-                pw.write(s.toString());
-                pw.write("\n");
+                pw.write(s.toString() + "\n");
                 pw.flush();
                 pw.close();
                 return DONE;

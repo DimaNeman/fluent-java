@@ -7,13 +7,13 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
+// CLIENT
 public class Main {
 
     public static void main(String[] args) throws IOException {
         Socket clientSocket = new Socket("localhost", 8000);
         clientSocket.setKeepAlive(true);
-
-        String command = "";
+                            
         Scanner sc = new Scanner(System.in);
 
         BufferedReader in = new BufferedReader(new InputStreamReader(
@@ -29,6 +29,7 @@ public class Main {
             out.println(request);
 
             while (!in.ready()) {
+		// try Thread.sleep(100) ???
             }
             while (in.ready()) {
                 String line = in.readLine();
